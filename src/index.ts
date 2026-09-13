@@ -1,6 +1,8 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import 'dotenv/config'
 import { homeRoute } from "./routes/home.tsx";
+import { meteoRoute } from "./routes/meteo.tsx";
 import { serveStatic } from "@hono/node-server/serve-static";
 
 const app = new Hono()
@@ -8,6 +10,7 @@ const app = new Hono()
 app.use('/public/*', serveStatic({root: './'}))
 
 app.route('/', homeRoute)
+app.route('/meteo', meteoRoute)
 
 serve({
   fetch: app.fetch,

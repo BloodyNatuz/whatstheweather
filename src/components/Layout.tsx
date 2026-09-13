@@ -2,22 +2,33 @@ import type { FC } from "hono/jsx"
 
 type LayoutProps = {
     title: string
+    currentPath: string
     children: any
 }
 
-export const Layout: FC<LayoutProps> = ({ title, children }) => {
+export const Layout: FC<LayoutProps> = ({ title, currentPath, children }) => {
+    const isHome = currentPath != '/'
+
     return (
         <html lang="fr">
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <link rel="stylesheet" href="/public/style.css" />
+                <link rel="stylesheet" href="/public/style.css"/>
                 <title>{title}</title>
             </head>
             <body>
                 <nav>
-                    <a href="/">Accueil</a>
-                    <a href="/contact">Contact</a>
+                    <a class="logo" href="/">What's the weather</a>
+                    {isHome && (
+                        <form action="/meteo" method="get">
+                            <input
+                                type="search"
+                                name="city"
+                                placeholder="Chercher une ville"
+                            />
+                        </form>
+                    )}
                 </nav>
 
                 <main>{children}</main>
