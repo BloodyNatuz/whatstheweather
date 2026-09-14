@@ -49,6 +49,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 80%;
 }
 
 main h1{
@@ -74,4 +75,163 @@ main form input{
 
 footer{
     padding: 0 1em;
+}
+
+.weather-result{
+    width: 75%;
+    display: grid;
+    flex-direction: column;
+    gap: 1em;
+    height: 80%;
+}
+
+.meteo-header{
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    background-image: url("meteoheader-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 0 1.5em;
+    border-radius: 1em;
+}
+
+.meteo-header div{
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.meteo-header div img{
+    margin-left: -.8em;
+    margin-bottom: -1em;
+    width: 4em;
+    height: auto;
+}
+
+.meteo-header div .header-temp{
+    font-weight: 300;
+    font-size: 36pt;
+    margin: 0;
+}
+
+.meteo-header div h1{
+    font-weight: 300;
+    font-size: 26pt;
+    margin: 0;
+}
+
+.meteo-header div:nth-last-child(1){
+    text-align: right;
+    margin-bottom: 1.8em;
+}
+
+.meteo-header div:nth-last-child(1) p{
+    margin: 0;
+}
+
+.meteo-header div:nth-last-child(1) p:nth-child(1){
+    font-size: 26pt;
+}
+
+.material-symbols-outlined{
+    color: rgb(193, 65, 57);
+    transform: scale(1.5);
+    padding-left: .25em;
+}
+
+.meteo-details{
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid: 100% 100% / 1fr 2fr;
+    gap: 1em;
+    justify-content: space-between;
+}
+
+.meteo-details h2{
+    margin: 0;
+    font-weight: 500;
+    font-size: 16pt;
+}
+
+.meteo-details h3{
+    font-weight: 400;
+    margin: 0;
+    font-size: 8pt;
+}
+
+.meteo-details .sun-air, .temps, .levels{
+    background-color: white;
+    border-radius: 15px;
+    padding: .5em;
+}
+
+.meteo-details .temps{
+    height: 50%;
+}
+
+.meteo-details .levels{
+    height: 50%;
+}
+
+.meteo-details .details-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+
+}
+
+.meteo-details .details-side .sun-air{
+    height: 100%;
+}
+
+.meteo-details .sun-air-items{
+    display: grid;
+    grid: 100% 100% / 1fr 1fr;
+    gap: .5em;
+    align-items: center;
+    justify-content: center;
+}
+
+.meteo-details .temps-items{
+    display: grid;
+    grid: 100% 100% / 1fr 1fr 1fr;
+    gap: .5em;
+    align-items: center;
+    justify-content: space-between;
+    place-items: center;
+    height: 80%;
+}
+
+.meteo-details .levels-items{
+    display: grid;
+    grid: 100% 100% / 1fr 1fr 1fr;
+    gap: .5em;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    height: 80%;
+}
+
+.meteo-details .meteo-item{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: .5em;
+}
+
+.meteo-details .meteo-item .meteo-text{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.meteo-details .meteo-item .meteo-text p{
+    margin: 0;
 }

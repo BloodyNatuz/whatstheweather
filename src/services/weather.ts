@@ -5,6 +5,7 @@ type WeatherData = {
     icon: string
     humidity: number
     windSpeed: number
+    country: string
 }
 
 export async function getWeather(cityName: string): Promise<WeatherData | null> {
@@ -29,7 +30,8 @@ export async function getWeather(cityName: string): Promise<WeatherData | null> 
             description: data.weather[0].description,
             icon: data.weather[0].icon,
             humidity: data.main.humidity,
-            windSpeed: data.wind.speed
+            windSpeed: data.wind.speed,
+            country: data.sys.country,
         }
     } catch (error) {
         console.error("Erreur lors de la récupération météo:", error)
