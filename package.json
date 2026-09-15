@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "npm install && tsc",
+    "build": "pnpm install && tsc",
     "start": "node dist/index.js"
   },
   "dependencies": {
