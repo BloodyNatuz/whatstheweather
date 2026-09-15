@@ -139,7 +139,7 @@ footer{
 
 .material-symbols-outlined{
     color: rgb(193, 65, 57);
-    transform: scale(1.5);
+    transform: scale(1.8);
     padding-left: .25em;
 }
 
@@ -221,8 +221,8 @@ footer{
 .meteo-details .meteo-item{
     display: flex;
     flex-direction: row;
-    align-items: start;
-    gap: .5em;
+    align-items: center;
+    gap: 1em;
 }
 
 .meteo-details .meteo-item .meteo-text{

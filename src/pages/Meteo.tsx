@@ -10,6 +10,13 @@ type MeteoPageProps = {
         humidity: number
         windSpeed: number
         country: string
+        sunrise: string
+        sunset: string
+        pressure: number
+        seaLevel: number | null
+        groundLevel: number | null
+        maxtemp: number
+        mintemp: number
     } | null
     error: string | null
 }
@@ -52,21 +59,21 @@ export const MeteoPage = ({currentPath, weather, error }: MeteoPageProps) => {
                                     <span class="material-symbols-outlined">wb_twilight</span>
                                     <div class="meteo-text">
                                         <h3>Sunrise</h3>
-                                        <p>Data</p>
+                                        <p>{weather.sunrise}</p>
                                     </div>
                                 </div>
                                 <div class="meteo-item">
                                     <span class="material-symbols-outlined">wb_twilight_2</span>
                                     <div class="meteo-text">
                                         <h3>Sunset</h3>
-                                        <p>Data</p>
+                                        <p>{weather.sunset}</p>
                                     </div>
                                 </div>
                                 <div class="meteo-item">
                                     <span class="material-symbols-outlined">readiness_score</span>
                                     <div class="meteo-text">
                                         <h3>Pression de l'air</h3>
-                                        <p>Data</p>
+                                        <p>{weather.pressure} hPa</p>
                                     </div>
                                 </div>
                                 <div class="meteo-item">
@@ -87,14 +94,14 @@ export const MeteoPage = ({currentPath, weather, error }: MeteoPageProps) => {
                                     <span class="material-symbols-outlined">thermometer_add</span>
                                     <div class="meteo-text">
                                         <h3>Temp. max</h3>
-                                        <p>data</p>
+                                        <p>{weather.maxtemp}</p>
                                     </div>
                                 </div>
                                 <div class="meteo-item">
                                     <span class="material-symbols-outlined">thermometer_minus</span>
                                     <div class="meteo-text">
                                         <h3>Temp. min</h3>
-                                        <p>data</p>
+                                        <p>{weather.mintemp}</p>
                                     </div>
                                 </div>
                                 <div class="meteo-item">
@@ -112,15 +119,15 @@ export const MeteoPage = ({currentPath, weather, error }: MeteoPageProps) => {
                                 <div class="meteo-item">
                                     <span class="material-symbols-outlined">tsunami</span>
                                     <div class="meteo-text">
-                                        <h3>Sea level</h3>
-                                        <p>data</p>
+                                        <h3>Pression en mer</h3>
+                                        <p>{weather.seaLevel} hPa</p>
                                     </div>
                                 </div>
                                 <div class="meteo-item">
                                     <span class="material-symbols-outlined">landscape</span>
                                     <div class="meteo-text">
-                                        <h3>Ground level</h3>
-                                        <p>data</p>
+                                        <h3>Pression au sol</h3>
+                                        <p>{weather.groundLevel} hPa</p>
                                     </div>
                                 </div>
                             </div>

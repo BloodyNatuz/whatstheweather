@@ -6,13 +6,28 @@ type WeatherData = {
     humidity: number
     windSpeed: number
     country: string
+    sunrise: string
+    sunset: string
+    pressure: number
+    seaLevel: number | null
+    groundLevel: number | null
+    maxtemp: number
+    mintemp: number
 }
 
 export async function getWeather(cityName: string): Promise<WeatherData | null> {
     const apiKey = process.env.OPENWEATHER_API_KEY
     const url =`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(cityName)}&appid=${apiKey}&units=metric&lang=fr`
 
-    console.log("Clé chargée:", process.env.OPENWEATHER_API_KEY)
+    function formatSunTime(unixTimestamp: number, timezoneOffsetSeconds: number): string {
+        const date = new Date((unixTimestamp + timezoneOffsetSeconds) * 1000)
+
+        return date.toLocaleTimeString('fr-FR', {
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'UTC'
+        })
+    }
 
     try {
         const response = await fetch(url)
@@ -32,6 +47,13 @@ export async function getWeather(cityName: string): Promise<WeatherData | null> 
             humidity: data.main.humidity,
             windSpeed: data.wind.speed,
             country: data.sys.country,
+            sunrise: formatSunTime(data.sys.sunrise, data.timezone),
+            sunset: formatSunTime(data.sys.sunset, data.timezone),
+            pressure: data.main.pressure,
+            seaLevel: data.main.sea_level ?? null,
+            groundLevel: data.main.grnd_level ?? null,
+            maxtemp: Math.round(data.main.temp_max),
+            mintemp: Math.round(data.main.temp_min),
         }
     } catch (error) {
         console.error("Erreur lors de la récupération météo:", error)
